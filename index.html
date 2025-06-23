@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy 6th Month!</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fff0f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.6s ease-in-out;
+  }
+  .container {
+    text-align: center;
+    padding: 20px;
+    max-width: 700px;
+    /* Start visible */
+    opacity: 1;
+    animation: fadeSlideIn 1s ease forwards;
+  }
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  h1, h2 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    margin: 0.2em 0 0.6em 0;
+    transition: color 0.3s ease-in-out;
+  }
+  /* Added margin bottom here to increase space below h1 */
+  #initial-text {
+    margin-bottom: 40px; /* <-- Adjust this to control space */
+  }
+  p {
+    font-size: 1.15rem;
+    color: #333;
+    margin: 0 0 1.5em 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .heart-button {
+    width: 120px;
+    height: 100px;
+    background: #ff4d6d;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transform: rotate(-45deg);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    margin: 20px auto 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(255, 77, 109, 0.5);
+  }
+  .heart-button:hover {
+    background-color: #ff6e83;
+    transform: rotate(-45deg) scale(1.1);
+    box-shadow: 0 6px 18px rgba(255, 110, 131, 0.7);
+  }
+  .heart-button::before,
+  .heart-button::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 100px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    transition: background-color 0.4s ease;
+  }
+  .heart-button::before {
+    top: -60px;
+    left: 0;
+  }
+  .heart-button::after {
+    left: 60px;
+    top: 0;
+  }
+  .reveal {
+    display: none;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInScale 0.9s ease-in-out forwards;
+  }
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeSlideIn 1.2s ease forwards;
+  }
+  .collage img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .collage img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+  }
+  .sparkles {
+    font-size: 1.6rem;
+    color: #ffc107;
+    margin-bottom: 14px;
+    animation: sparkle 2.5s infinite ease-in-out;
+  }
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.75; }
+  }
+  /* Responsive tweaks */
+  @media (max-width: 480px) {
+    .heart-button {
+      width: 90px;
+      height: 75px;
+    }
+    .heart-button::before,
+    .heart-button::after {
+      width: 90px;
+      height: 75px;
+    }
+    .collage {
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      max-width: 90vw;
+    }
+    .collage img {
+      height: 90px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" id="main-container">
+    <h1 id="initial-text">Click me for a surprise!!</h1>
+    <div class="heart-button" onclick="revealSurprise()" aria-label="Click for surprise" role="button" tabindex="0"></div>
+
+    <div class="reveal" id="surprise" aria-live="polite" aria-hidden="true">
+      <div class="sparkles" aria-hidden="true">✨💖✨</div>
+      <h2>happy 6th month anniversary, my baby! 💖</h2>
+      <p>I KNOW WE SAID WE'LL ONLY CELEBRATE ANNIVERSARIES BUT happy 6 months hehe :D thanks for being in my life heh <3 cant wait to celebrate many more anniversaries together! lov u my baby cant wait to see u  💫</p>
+      <img src="https://media4.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MHU2MHZhZTlpOWh3cjJxcTEyZjgwNnN4ZDg5NmV6a3g0aTFtenpjYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/yc2pHdAoxVOrJ2m5Ha/200.webp" alt="Cute animated heart GIF" width="200" />
+
+      <div class="collage" id="collage">
+        <img src="photos/photo1.jpg" alt="Us together photo 1" />
+        <img src="photos/photo2.jpg" alt="Us together photo 2" />
+        <img src="photos/photo3.jpg" alt="Us together photo 3" />
+        <img src="photos/photo4.jpg" alt="Us together photo 4" />
+        <img src="photos/photo5.jpg" alt="Us together photo 5" />
+      </div>
+    </div>
+  </div>
+
+<script>
+  function revealSurprise() {
+    const reveal = document.getElementById('surprise');
+    const initialText = document.getElementById('initial-text');
+    const button = document.querySelector('.heart-button');
+    const collage = document.getElementById('collage');
+    const container = document.getElementById('main-container');
+
+    // Hide initial text and heart button
+    initialText.style.display = 'none';
+    button.style.display = 'none';
+
+    // Show surprise section with fade-in
+    reveal.style.display = 'block';
+    reveal.style.opacity = '1';
+    reveal.style.animation = 'fadeInScale 0.9s ease-in-out forwards';
+    reveal.setAttribute('aria-hidden', 'false');
+
+    // Show collage with fade-in
+    collage.style.opacity = '1';
+    collage.style.animation = 'fadeSlideIn 1.2s ease forwards';
+
+    // Change background color
+    document.body.style.backgroundColor = '#fff8fc';
+  }
+
+  // Accessibility: allow keyboard activation for heart button
+  document.querySelector('.heart-button').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      revealSurprise();
+    }
+  });
+</script>
+</body>
+</html>
